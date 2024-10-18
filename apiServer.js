@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
     console.log('A user connected');
 
     // Listen for real-time updates
-    redisClient.subscribe('resultChannel');
+    redisClient.subscribe('requestQueue');
     redisClient.on('message', (channel, message) => {
         const data = JSON.parse(message);
         socket.emit('result', data);

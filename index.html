@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Client</title>
+</head>
+<body>
+    <h1>WebSocket Client</h1>
+    <div id="result"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('result', (data) => {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML += `<p>Result for userId ${data.userId}: ${data.result}</p>`;
+        });
+    </script>
+</body>
+</html>
